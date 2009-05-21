@@ -1,0 +1,3 @@
+This is a small collection of script/libraries to interact with SliceHost API
+
+Currently there is the slicedyndns-update.rb ruby script that updates data of DNS entries on SliceHost

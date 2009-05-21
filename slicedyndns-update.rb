@@ -29,7 +29,10 @@ my_slicehost = SliceHost::API.create_interface(slicehost_api_key)
 dns_record = my_slicehost::DNS::Record.find(slicehost_dns_record_id)
 current_ip = open('http://checkip.dyndns.org/').read.scan(/[\.0-9]+/)[0]
 
-if dns_record.data == current_ip
+if dns_record.data != current_ip
     dns_record.data = current_ip
     dns_record.save
+    system("syslog -s -l n 'SliceHost DNS - Record data updated to: #{dns_record.data}'")
+else
+    system("syslog -s -l n 'SliceHost DNS - Record data unchanged: #{dns_record.data}'")
 end
