@@ -22,8 +22,8 @@ module SliceHost
     end
 end
 
-slicehost_api_key = '23b5c1a6628f0aab479c5b48b5b06ca3e3c1c8044f80b7344ea932914bfb50b6'
-slicehost_dns_record_id = 599906
+slicehost_api_key = '<API KEy Goes here>'
+slicehost_dns_record_id = <DNS Record ID>
 
 my_slicehost = SliceHost::API.create_interface(slicehost_api_key)
 dns_record = my_slicehost::DNS::Record.find(slicehost_dns_record_id)
